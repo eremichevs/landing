@@ -1,103 +1,251 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <title>Продажи+ — Увеличим ваши продажи</title>
-    <link rel="stylesheet" href="/src/style.css" />
-  </head>
-  <body class="bg-white text-gray-800">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Металлоконструкции | Индустриальный Минимализм</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 
-    <section class="min-h-[80vh] bg-cover bg-center bg-no-repeat py-20 px-6" style="background-image: url('Hero.jpg');">
-      <div class="max-w-5xl mx-auto text-center">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-[#FF4000]">
-          Удвоим ваши продажи за 30 дней
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
+
+  <style>
+    /* Обновленные базовые стили с светлыми акцентами */
+    body {
+      background-color: #f5f5f5; /* Светлый фон */
+      color: #333333; /* Темный текст */
+    }
+    .bg-light-base {
+        background-color: #f5f5f5;
+    }
+    .bg-light-accent {
+        background-color: #ffffff; /* Белый для блоков */
+    }
+    .bg-light-gray {
+        background-color: #e5e5e5; /* Светло-серый */
+    }
+
+    /* Hero-баннер фон с более светлым паттерном */
+    .hero-pattern-bg {
+        background-color: #f5f5f5;
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d4d4d4' fill-opacity='0.3' fill-rule='evenodd'%3E%3Cpath d='M0 0h30v30H0V0zm30 30h30v30H30V30z'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    /* Обновленные стили для акцентных линий и кнопок */
+    .accent-orange {
+        color: #f97316; /* Tailwind orange-500 */
+    }
+    .border-accent-orange {
+        border-color: #f97316;
+    }
+    .bg-accent-orange {
+        background-color: #f97316;
+    }
+    .hover\:bg-accent-orange-dark:hover {
+        background-color: #ea580c; /* orange-600 */
+    }
+
+    .accent-blue {
+        color: #0ea5e9; /* Tailwind sky-500 */
+    }
+    .border-accent-blue {
+        border-color: #0ea5e9;
+    }
+    .bg-accent-blue {
+        background-color: #0ea5e9;
+    }
+    .hover\:bg-accent-blue-dark:hover {
+        background-color: #0284c7; /* sky-600 */
+    }
+
+    /* Светлый вариант полей ввода */
+    .input-industrial {
+      background-color: #ffffff;
+      border: 1px solid #d4d4d4;
+      color: #333333;
+      font-weight: 300;
+    }
+    .input-industrial:focus {
+      border-color: #0ea5e9;
+      box-shadow: 0 0 0 1px #0ea5e9;
+      background-color: #f8fafc;
+    }
+    .input-industrial::placeholder {
+      color: #a3a3a3;
+    }
+
+    /* Подчеркивание заголовков */
+    .heading-underline::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 3px;
+        background-color: #f97316;
+        margin: 1rem auto 0;
+    }
+    
+    /* Тень для карточек */
+    .card-shadow {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    
+    /* Мобильная оптимизация для заголовков */
+    @media (max-width: 767px) {
+      .heading-underline::after {
+        width: 40px;
+        margin-top: 0.75rem;
+      }
+    }
+    
+    /* Градиент для кнопок */
+    .btn-gradient {
+      background-image: linear-gradient(to right, #f97316, #f59e0b);
+    }
+    .btn-gradient:hover {
+      background-image: linear-gradient(to right, #ea580c, #d97706);
+    }
+  </style>
+</head>
+<body class="bg-light-base font-roboto antialiased min-h-screen flex flex-col">
+
+  <main class="flex-grow">
+    <section class="min-h-[80vh] hero-pattern-bg py-20 md:py-24 flex items-center justify-center relative overflow-hidden">
+      <div class="container mx-auto px-4 sm:px-6 md:px-8 text-center relative z-10">
+        <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 text-gray-800 font-oswald uppercase leading-tight tracking-normal">
+          <span class="accent-orange">Металлоконструкции</span><br>
+          для складов
         </h1>
-        <p class="text-lg md:text-xl mb-6">
-          Автоматизация, обучение, скрипты — всё под ключ
+        <p class="text-base md:text-2xl mb-10 md:mb-12 text-gray-600 max-w-4xl mx-auto font-light leading-relaxed">
+          Проектирование. Производство. Монтаж. <br>Надёжные решения для индустриальных задач.
         </p>
-        <a href="#form" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg">
+        <a href="#feedback" class="inline-block btn-gradient text-white px-8 py-4 md:px-12 md:py-5 rounded-md font-bold tracking-wider transition-all duration-300 transform hover:scale-105 shadow-lg uppercase text-base md:text-lg">
           Получить консультацию
         </a>
       </div>
     </section>
-
-    <section class="py-16 px-6 bg-gray-100">
-      <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-10">Наши решения</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-          <div class="bg-white p-6 rounded-xl shadow">
-            <h3 class="text-xl font-semibold mb-2">Скрипты продаж</h3>
-            <p>Пишем эффективные скрипты для холодных и теплых клиентов</p>
+    <section class="py-20 md:py-24 bg-light-gray">
+      <div class="container mx-auto px-6 md:px-8">
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-12 md:mb-20 text-center font-oswald uppercase text-gray-800 heading-underline">
+          Наши преимущества
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+          <div class="p-6 md:p-8 bg-light-accent rounded-lg card-shadow border border-gray-200 hover:border-accent-blue transition-all duration-300 hover:transform hover:-translate-y-2">
+            <div class="accent-blue mb-4 md:mb-6 flex justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 md:h-20 md:w-20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-gray-800 text-center font-oswald">Сертифицированные материалы</h3>
+            <p class="text-gray-600 leading-relaxed text-center text-sm md:text-base font-light">ГОСТ, ISO, собственный контроль качества на всех этапах производства.</p>
           </div>
-          <div class="bg-white p-6 rounded-xl shadow">
-            <h3 class="text-xl font-semibold mb-2">Обучение менеджеров</h3>
-            <p>Прокачиваем навыки отдела продаж с нуля до сделки</p>
+          
+          <div class="p-6 md:p-8 bg-light-accent rounded-lg card-shadow border border-gray-200 hover:border-accent-blue transition-all duration-300 hover:transform hover:-translate-y-2">
+            <div class="accent-blue mb-4 md:mb-6 flex justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 md:h-20 md:w-20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-gray-800 text-center font-oswald">Индивидуальные решения</h3>
+            <p class="text-gray-600 leading-relaxed text-center text-sm md:text-base font-light">Проектируем конструкции под конкретные задачи и нагрузки вашего объекта.</p>
           </div>
-          <div class="bg-white p-6 rounded-xl shadow">
-            <h3 class="text-xl font-semibold mb-2">Автоматизация CRM</h3>
-            <p>Внедряем и настраиваем CRM-системы для повышения эффективности</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-16 px-6">
-      <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-10">Почему мы?</h2>
-        <div class="grid md:grid-cols-3 gap-8 text-center">
-          <div>
-            <h4 class="text-xl font-semibold">200+ клиентов</h4>
-            <p>Реальные кейсы с измеримыми результатами</p>
-          </div>
-          <div>
-            <h4 class="text-xl font-semibold">Рост продаж на 47%</h4>
-            <p>В среднем у клиентов за первые 2 месяца</p>
-          </div>
-          <div>
-            <h4 class="text-xl font-semibold">Гарантия результата</h4>
-            <p>Работаем по договору — всё прозрачно</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-16 px-6 bg-gray-100">
-      <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-10">Наши клиенты</h2>
-        <div class="grid md:grid-cols-2 gap-8">
-          <div class="bg-white p-6 rounded-xl shadow">
-            <p>“После внедрения CRM и обучения команда стала закрывать на 30% больше сделок. Супер!”</p>
-            <p class="mt-4 font-semibold">— Андрей, директор ООО "БизнесПро"</p>
-          </div>
-          <div class="bg-white p-6 rounded-xl shadow">
-            <p>“Очень крутая работа по скриптам. Конверсия звонков выросла с 12% до 22%.”</p>
-            <p class="mt-4 font-semibold">— Наталья, руководитель отдела продаж</p>
+          
+          <div class="p-6 md:p-8 bg-light-accent rounded-lg card-shadow border border-gray-200 hover:border-accent-blue transition-all duration-300 hover:transform hover:-translate-y-2">
+            <div class="accent-blue mb-4 md:mb-6 flex justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 md:h-20 md:w-20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-gray-800 text-center font-oswald">Собственное производство</h3>
+            <p class="text-gray-600 leading-relaxed text-center text-sm md:text-base font-light">Короткие сроки от 7 дней, гарантия 5 лет на все произведенные изделия.</p>
           </div>
         </div>
       </div>
     </section>
-
-    <section id="form" class="py-16 px-6 bg-blue-600 text-white">
-      <div class="max-w-xl mx-auto text-center">
-        <h2 class="text-3xl font-bold mb-6">Оставьте заявку</h2>
-        <form class="space-y-4">
-          <input type="text" placeholder="Ваше имя" class="w-full p-3 rounded text-black" required />
-          <input type="tel" placeholder="Телефон" class="w-full p-3 rounded text-black" required />
-          <textarea placeholder="Комментарий" class="w-full p-3 rounded text-black" rows="4"></textarea>
-          <button type="submit" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100">
-            Отправить
-          </button>
-        </form>
+    <section id="feedback" class="py-20 md:py-24 bg-light-gray">
+      <div class="container mx-auto px-6 md:px-8">
+        <div class="max-w-xl mx-auto bg-light-accent p-8 md:p-12 rounded-lg card-shadow border border-gray-200">
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-6 md:mb-8 font-oswald uppercase text-gray-800 relative text-center heading-underline">
+            Оставьте <span class="accent-orange">заявку</span>
+          </h2>
+          <p class="text-gray-600 mb-8 md:mb-10 text-base md:text-lg leading-relaxed font-light text-center">
+            Мы оперативно рассчитаем точную стоимость металлоконструкций в течение <strong>24 часов</strong>.
+          </p>
+          
+          <form class="space-y-5 md:space-y-6">
+            <div>
+              <label for="name" class="block mb-2 text-gray-700 text-base md:text-lg font-medium">Ваше имя<span class="accent-orange">*</span></label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name"
+                required
+                class="w-full px-4 py-2 md:px-5 md:py-3 input-industrial rounded-md text-sm md:text-base"
+                placeholder="Иван Иванов"
+              >
+            </div>
+            
+            <div>
+              <label for="email" class="block mb-2 text-gray-700 text-base md:text-lg font-medium">Email<span class="accent-orange">*</span></label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email"
+                required
+                class="w-full px-4 py-2 md:px-5 md:py-3 input-industrial rounded-md text-sm md:text-base"
+                placeholder="example@mail.ru"
+              >
+            </div>
+            
+            <div>
+              <label for="phone" class="block mb-2 text-gray-700 text-base md:text-lg font-medium">Телефон<span class="accent-orange">*</span></label>
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone"
+                required
+                class="w-full px-4 py-2 md:px-5 md:py-3 input-industrial rounded-md text-sm md:text-base"
+                placeholder="+7 (___) ___-__-__"
+              >
+            </div>
+            
+            <div>
+              <label for="message" class="block mb-2 text-gray-700 text-base md:text-lg font-medium">Сообщение (необязательно)</label>
+              <textarea 
+                id="message" 
+                name="message"
+                rows="4"
+                class="w-full px-4 py-2 md:px-5 md:py-3 input-industrial rounded-md resize-y text-sm md:text-base"
+                placeholder="Опишите ваш проект, требования или задайте вопросы..."
+              ></textarea>
+            </div>
+            
+            <div>
+              <button 
+                type="submit" 
+                class="w-full btn-gradient text-white px-6 py-3 md:px-8 md:py-4 font-bold tracking-wider transition-all duration-300 rounded-md uppercase text-base md:text-lg shadow-lg transform hover:-translate-y-1"
+              >
+                Отправить заявку
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </section>
+    </main>
 
-    <footer class="bg-gray-800 text-gray-300 py-6 text-center">
-      <p>&copy; 2025 Продажи+. Все права защищены.</p>
-      <p>Телефон: +7 (900) 000-00-00 | Email: info@prodazhi.ru</p>
-    </footer>
-
-    <script type="module" src="/src/main.js"></script>
-  </body>
+  <footer class="bg-light-accent text-gray-600 py-8 md:py-10 border-t border-gray-200">
+    <div class="container mx-auto px-6 md:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+        <p class="mb-4 md:mb-0 text-sm md:text-md font-light">
+          &copy; 2025 <span class="accent-blue font-medium">Металлоконструкции</span>. Все права защищены.
+        </p>
+      </div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+</body>
 </html>
